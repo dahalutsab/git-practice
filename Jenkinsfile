@@ -20,6 +20,12 @@ pipeline {
                 sh 'docker build -t go-app git-practice'
             }
         }
+
+        stage('stop container') {
+            steps {
+                sh 'docker stop go-app-container'
+            }
+        }
         
         stage('Delete container') {
             steps {
